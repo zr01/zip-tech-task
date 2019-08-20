@@ -1,0 +1,17 @@
+<!DOCTYPE xml>
+<configuration scan="true">
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%c{20}|%line]: %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework.security" level="warn" />
+	<logger name="org.springframework" level="warn" />
+	<logger name="org.hibernate" level="warn" />
+	<logger name="org.apache" level="warn" />
+
+	<root level="info">
+		<appender-ref ref="console" />
+	</root>
+</configuration>

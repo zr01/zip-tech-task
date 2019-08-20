@@ -1,0 +1,7 @@
+spring:
+  flyway:
+    user: postgres
+    url: jdbc:postgresql://localhost:5432/zip
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/zip

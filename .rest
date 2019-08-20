@@ -1,0 +1,36 @@
+### Create User
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "email": "a@b.com",
+  "monthly_expenses": 100,
+  "monthly_salary": 1200,
+  "name": "test"
+}
+
+### List User
+GET http://localhost:8080/user
+
+
+### Retrieve user
+GET http://localhost:8080/user/1
+
+
+### Create Account
+POST http://localhost:8080/account
+Content-Type: application/json
+
+{
+  "user": {
+    "id": 1
+  },
+  "credit_limit": 1000
+}
+
+#### List Account
+GET http://localhost:8080/account
+
+
+### Retrieve account
+GET http://localhost:8080/account/1

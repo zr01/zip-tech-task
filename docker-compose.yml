@@ -1,0 +1,25 @@
+version: '3.6'
+services:
+  zip:
+    build:
+      context: '.'
+      dockerfile: 'ms.Dockerfile'
+    container_name: 'zip'
+    hostname: 'zip'
+    image: 'aquinoa.com/zip'
+    ports: 
+      - '8080:8080'
+    environment: 
+      JAVA_ARGS: '-Dspring.datasource.url=jdbc:postgresql://host.docker.internal:5432/zip -Dspring.flyway.url=jdbc:postgresql://host.docker.internal:5432/zip'
+  zip-db:
+    build:
+      context: '.'
+      dockerfile: 'db.Dockerfile'
+    container_name: 'zip-db'
+    hostname: 'zip-db'
+    image: 'aquinoa.com/zip-db'
+    ports:
+      - '5432:5432'
+    environment:
+      PGDATA: '/var/lib/zip/data'
+      COMPOSE_CONVERT_WINDOWS_PATHS: 1
