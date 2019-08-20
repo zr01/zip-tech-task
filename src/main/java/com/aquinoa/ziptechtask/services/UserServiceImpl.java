@@ -22,12 +22,12 @@ public class UserServiceImpl implements UserService {
   public UserDao createUser(@NonNull UserDao user)
       throws InvalidFieldException, NullPointerException {
     // Validation
-    if (user.getMonthlyExpenses() <= 0) {
+    if (user.getMonthlyExpenses() < 0) {
       throw new InvalidFieldException("Monthly Expenses",
           "Monthly expense value must be positive.");
     }
 
-    if (user.getMonthlySalary() <= 0) {
+    if (user.getMonthlySalary() < 0) {
       throw new InvalidFieldException("Monthly Salary", "Monthly salary value must be positive.");
     }
 

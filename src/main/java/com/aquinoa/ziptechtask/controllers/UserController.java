@@ -30,17 +30,36 @@ public class UserController {
   @Autowired
   UserRepository userRepository;
 
+  /**
+   * Create the User
+   * 
+   * @param user
+   * @return
+   * @throws InvalidFieldException
+   */
   @PostMapping
   public User postUser(@RequestBody User user) throws InvalidFieldException {
     return user.toModel(userService.createUser(user.toDb()));
   }
 
+  /**
+   * List all users
+   * 
+   * @return
+   */
   @GetMapping
   public List<User> getUserList() {
     return User.builder().build().toModel(StreamSupport
         .stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList()));
   }
 
+  /**
+   * Retrieve a user
+   * 
+   * @param id
+   * @return
+   * @throws InvalidDbRecordException
+   */
   @GetMapping("/{id}")
   public User getUser(@PathVariable Long id) throws InvalidDbRecordException {
     return User.builder().build().toModel(userRepository.findById(id)

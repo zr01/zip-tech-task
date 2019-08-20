@@ -38,8 +38,8 @@ public class UserServiceTest {
     UserDao request = UserDao.builder()
         .emailAddress("test-email")
         .name("test-name")
-        .monthlyExpenses(1)
-        .monthlySalary(1)
+        .monthlyExpenses(0)
+        .monthlySalary(0)
         .build();
     
     when(userRepository.save(any(UserDao.class)))
